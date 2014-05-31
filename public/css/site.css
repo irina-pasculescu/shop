@@ -1,0 +1,80 @@
+body, html {
+    margin: 0 5px;
+    font-family: Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 1.4em;
+    color: #D74937;
+    letter-spacing: 2px
+}
+
+a {
+    color: #989600;
+}
+
+/* Table */
+th {
+    text-align: left;
+    color: #FF9D3F;
+    letter-spacing: 2px
+}
+
+td, th {
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+/* style form */
+form dt {
+    width: 100px;
+    display: block;
+    float: left;
+    clear: left;
+}
+
+form dd {
+    margin-left: 0;
+    float: left;
+
+}
+
+form #submitbutton {
+    margin-left: 100px;
+}
+
+#viewItem {
+    color: #4871FF;
+}
+
+#addInBasket {
+    color: #009641;
+}
+
+#delete {
+    color: #E52237;
+}
+
+#bar {
+    color: #8AC007;
+}
+
+#emptyBasket {
+    color: #777777;
+    font-style: italic;
+}
+
+.item {
+    color: #777777;
+}
+
+.message {
+    color: #FF0605;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.details {
+    color: #5FA4E0;
+    width: 400px
+}

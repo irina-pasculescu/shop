@@ -1,0 +1,51 @@
+<?php
+
+$this->title = "Books";
+$this->headTitle($this->title);
+
+?>
+
+<?php
+if (isset($this->error)) {
+    echo $this->error;
+}
+?>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->books as $book) : ?>
+        <tr>
+            <td class="item"><?php echo $this->escape($book->title); ?></td>
+            <td class="item"><?php echo $this->escape($book->author); ?></td>
+            <td class="message"><?php if ($this->booksInBasket[$book->id]) {
+                    echo "You have " . $this->booksInBasket[$book->id] . " of this product in your basket!";
+                } ?></td>
+            <td id="bar">|</td>
+            <td>
+                <a id="viewItem" href="<?php echo $this->url(
+                    array('controller' => 'index',
+                          'action'     => 'view',
+                          'id'         => $book->id)
+                );?>">View</a>
+            </td>
+            <td id="bar">|</td>
+            <td>
+                <a id="addInBasket" href="<?php echo $this->url(
+                    array('controller' => 'index',
+                          'action'     => 'add',
+                          'id'         => $book->id)
+                );?>">Add in the basket</a>
+            </td>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+<p><a href="<?php echo $this->url(
+        array('controller' => 'index',
+              'action'     => 'basket')
+    );?>">Basket</a></p>

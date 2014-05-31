@@ -1,0 +1,58 @@
+<?php
+
+$this->title = "Basket";
+$this->headTitle($this->title);
+
+?>
+
+<?php
+if (count($this->basket) > 0) {
+    ?>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>&nbsp;</th>
+        </tr>
+
+        <?php
+        foreach ($this->basket as $book) :
+            ?>
+            <tr>
+                <td class="item"><?php echo $this->escape($book['title']); ?></td>
+                <td class="item"><?php echo $this->escape($book['author']); ?></td>
+                <td class="message">Added : <?php echo $book['added']; ?></td>
+                <td id="bar">|</td>
+                <td>
+                    <a id="viewItem" href="<?php echo $this->url(
+                        array('controller' => 'index',
+                              'action'     => 'view',
+                              'id'         => $book['bookId'])
+                    );?>">View</a>
+                </td>
+                <td id="bar">|</td>
+                <td>
+                    <a id="delete" href="<?php echo $this->url(
+                        array('controller' => 'index',
+                              'action'     => 'delete',
+                              'id'         => $book['basketId'])
+                    );?>">Delete</a>
+                </td>
+            </tr>
+
+        <?php
+        endforeach;  ?>
+    </table>
+<?php
+} else {
+    ?>
+    <p id="emptyBasket">Your basket is empty!</p>
+<?php
+}
+?>
+
+
+<p><a href="<?php echo $this->url(
+        array('controller' => 'index',
+              'action'     => 'index')
+    );?>">Home Page</a></p>

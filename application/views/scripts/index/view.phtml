@@ -1,0 +1,45 @@
+<?php
+
+$this->title = "Book";
+$this->headTitle($this->title);
+
+?>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td><?php echo $this->escape($this->book['title']); ?></td>
+        <td><?php echo $this->escape($this->book['author']); ?></td>
+        <td id="bar">|</td>
+        <td>
+            <a id="addInBasket" href="<?php echo $this->url(
+                array('controller' => 'index',
+                      'action'     => 'add',
+                      'id'         => $this->book['id'])
+            );?>">Add in the basket</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" class="details"><span>Details:</span>
+
+            <p><?php echo $this->escape($this->book['details']); ?></p>
+        </td>
+    </tr>
+</table>
+
+<p><a href="<?php echo $this->url(
+        array('controller' => 'index',
+              'action'     => 'index'),
+        null, true
+    );
+    ?>">Home Page</a> |
+
+    <a href="<?php echo $this->url(
+        array('controller' => 'index',
+              'action'     => 'basket'),
+        null, true
+    );?>">Basket</a></p>
